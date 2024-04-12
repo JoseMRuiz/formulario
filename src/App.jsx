@@ -6,14 +6,14 @@ const App = () => {
 
     const handleSelectChange = (e) => {
         setSelectedOption(e.target.value);
-        setShowInput(e.target.value !== ''); // Mostrar el input si se selecciona una opción
+        console.log(e.target.value)
     };
     return (
         
         <div className='flex  h-full w-full'>
             <div className='w-full content-center justify-center h-full '>
                 
-                <img className=' h-48 mt-40 ml-auto mr-auto opacity-10 hover:opacity-100 rounded-xl p-4'
+                <img className=' h-48 mt-40 ml-auto mr-auto  rounded-xl p-4'
                     src={logotc}
                 />
             </div>
@@ -46,8 +46,10 @@ const App = () => {
                         <option value="duelo">Duelo</option>
                     </select>
 
-                    {showInput && (
+                    {(selectedOption !== '' && selectedOption !== 'falta con aviso' && selectedOption !== 'duelo') ?  (
                         <input className='p-4 mb-4' type='File' placeholder='Nombre' />
+                    ) : (
+                        <div></div>
                     )}
                     <button class="bg-red-300 hover:bg-red-500 text-white font-bold self-center w-32 py-1 px-3 rounded-full shadow-lg hover:text-white shadow-white transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce">
                         solicitar
